@@ -19,7 +19,7 @@ function init() {
     scene.add(camera);
 
     shoeSurfaceMesh = getShoeSurfaceMesh(false, true);
-    shoeSurfaceMesh.scale.set(0.4, 0.4, 0.4);
+    shoeSurfaceMesh.scale.set(0.2, 0.2, 0.2);
 
     initAr();
 
@@ -70,8 +70,8 @@ function getMesh(geometry, material) {
 }
 
 function rotateMesh(mesh) {
-    mesh.rotation.y += 0.001;
-    mesh.rotation.x += 0.005;
+    mesh.rotation.y += 0.002;
+    mesh.rotation.x += 0.006;
 }
 
 function getShoeSurfaceMesh(isWireframe, isWithInterval) {
