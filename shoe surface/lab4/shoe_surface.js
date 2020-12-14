@@ -15,14 +15,11 @@ function init() {
     scene = new THREE.Scene();
 
     camera = new THREE.PerspectiveCamera(120, window.innerWidth / window.innerHeight);
-    camera.position.set(0, 0, 7);
+    camera.position.set(0, 0, 0);
     scene.add(camera);
-    //trackballControl = new THREE.TrackballControls(camera, render.domElement);
 
     shoeSurfaceMesh = getShoeSurfaceMesh(false, true);
-    shoeSurfaceMesh.scale.set(0.1, 0.1, 0.1);
-
-    //controls = new THREE.DeviceOrientationControls(shoeSurfaceMesh);
+    shoeSurfaceMesh.scale.set(0.4, 0.4, 0.4);
 
     initAr();
 
@@ -61,9 +58,6 @@ function animate(nowMsec) {
     onRenderFcts.forEach(function (onRenderFct) {
         onRenderFct(deltaMsec / 1000, nowMsec / 1000)
     })
-    /*render.render(scene, camera);
-    trackballControl.update();
-    controls.update();*/
 }
 
 function getMaterial(isWireframe) {
@@ -107,7 +101,7 @@ function initAr() {
     })
 
     arToolkitContext = new THREEx.ArToolkitContext({
-        cameraParametersUrl: 'camera_para.dat',
+        cameraParametersUrl: 'camera.dat',
         detectionMode: 'mono',
         maxDetectionRate: 30,
         canvasWidth: 80 * 3,
@@ -139,7 +133,7 @@ function initAr() {
         lerpScale: 1,
     })
 
-    onRenderFcts.push(function (delta) {
+    onRenderFcts.push(function () {
         smoothedControls.update(markerRoot)
     })
 
