@@ -52,6 +52,7 @@ function shoeSurfaceWithInterval(u, v, vector) {
 
 function animate(nowMsec) {
     requestAnimationFrame(animate);
+    rotateMesh(shoeSurfaceMesh);
     lastTimeMsec = lastTimeMsec || nowMsec - 1000 / 60;
     var deltaMsec = Math.min(200, nowMsec - lastTimeMsec);
     lastTimeMsec = nowMsec;
